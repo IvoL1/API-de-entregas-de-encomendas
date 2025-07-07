@@ -65,6 +65,10 @@ class DeliveryLogController {
       },
     });
 
+    if (!delivery) {
+      throw new AppError('Delivered not found.', 404);
+    }
+
     if (req.user?.role === 'customer' && req.user.id !== delivery?.userId) {
       throw new AppError('Access denied.', 401);
     }

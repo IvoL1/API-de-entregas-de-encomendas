@@ -1,3 +1,8 @@
 import { app } from '@/app';
+import { env } from './env';
 
-app.listen(3000, () => console.warn('Server running on port: 3000'));
+const PORT = env.PORT;
+
+app.listen(PORT, () =>
+  console.warn(`Server running on http://localhost:${PORT}`)
+);
